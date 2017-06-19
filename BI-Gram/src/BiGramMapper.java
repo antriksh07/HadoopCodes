@@ -1,6 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.StringTokenizer;
 
 import org.apache.hadoop.io.IntWritable;
@@ -8,7 +8,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class WikiCountMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
+public class BiGramMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
 
 	ArrayList<String> ls=new ArrayList<String>();
 	
@@ -20,7 +20,6 @@ public class WikiCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
 		while(words.hasMoreTokens())
 		{
 			String word=words.nextToken();
-			//context.write(new Text(word), new IntWritable(1));
 			ls.add(word);
 		}
 		

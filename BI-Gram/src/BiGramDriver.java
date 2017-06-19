@@ -8,15 +8,15 @@ import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class WikiCountDriver {
+public class BiGramDriver {
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 		
 		Configuration conf=new Configuration();
 		Job job=Job.getInstance(conf,"Wiki word Count");
 		
-		job.setJarByClass(WikiCountDriver.class);
-		job.setMapperClass(WikiCountMapper.class);
-		job.setReducerClass(WikiCountReducer.class);
+		job.setJarByClass(BiGramDriver.class);
+		job.setMapperClass(BiGramMapper.class);
+		job.setReducerClass(BiGramReducer.class);
 		
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
